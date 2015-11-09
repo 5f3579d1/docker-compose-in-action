@@ -1,0 +1,22 @@
+tomcat1:
+  build: ./tomcat
+  container_name: tomcat1
+
+tomcat2:
+  build: ./tomcat
+  container_name: tomcat2
+
+tomcat3:
+  build: ./tomcat
+  container_name: tomcat3
+
+nginx:
+  build: ./nginx
+  container_name: nginx
+  ports:
+    - "80:80"
+  links:
+    - tomcat1
+    - tomcat2
+    - tomcat3
+
